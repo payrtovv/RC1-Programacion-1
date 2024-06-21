@@ -20,7 +20,7 @@ int main(){
         switch (respuesta)
         {
         case 1:
-            IngresarNuevolibro(NombresLibros, CantidadLibros, PrecioLibros ,LibrosIngresados);
+            IngresarNuevolibro(NombresLibros, CantidadLibros, PrecioLibros , &LibrosIngresados);
             LibrosIngresados++;
             break;
         case 2:

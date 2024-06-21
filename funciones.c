@@ -6,25 +6,25 @@
 
 
 
-void IngresarNuevolibro(char NombresLibros[MAXLIBROS][MAXLETRAS], int CantidadLibros[MAXLIBROS], float PrecioLibros[MAXLETRAS] ,int LibrosIngresados){
-    if (LibrosIngresados >= MAXLIBROS) {
+void IngresarNuevolibro(char NombresLibros[MAXLIBROS][MAXLETRAS], int CantidadLibros[MAXLIBROS], float PrecioLibros[MAXLETRAS] ,int* LibrosIngresados){
+    if (*LibrosIngresados >= MAXLIBROS) {
         printf("No hay almacenamiento suficiente.\n");
         printf("<-------------------------->\n");
         return;
     }   
     printf("Ingrese el nombre del libro a registrar: ");
-    fgets(NombresLibros[LibrosIngresados], MAXLETRAS, stdin);
-    for (int i = 0; i < LibrosIngresados; i++)
+    fgets(NombresLibros[*LibrosIngresados], MAXLETRAS, stdin);
+    for (int i = 0; i < *LibrosIngresados; i++)
     {
-        if ((strcmp(NombresLibros[LibrosIngresados],NombresLibros[i]))==0)
+        if ((strcmp(NombresLibros[*LibrosIngresados],NombresLibros[i]))==0)
         {
             printf("Libro ya existente.\n");
             printf("<-------------------------->\n");
             return;
         }
     }
-    CantidadLibros[LibrosIngresados] = leerEnteroPositivo("Ingrese la cantidad de libros: ");
-    PrecioLibros[LibrosIngresados] = leerFlotantePositivo("Ingrese el precio del libro: ");
+    CantidadLibros[*LibrosIngresados] = leerEnteroPositivo("Ingrese la cantidad de libros: ");
+    PrecioLibros[*LibrosIngresados] = leerFlotantePositivo("Ingrese el precio del libro: ");
     printf("Producto agregado con exito.\n");
     printf("<-------------------------->\n");
 }
